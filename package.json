@@ -12,10 +12,15 @@
     "lint": "npm run lint --workspace=apps/web"
   },
   "devDependencies": {
-    "typescript": "^5.9.3"
+    "@tanstack/start": "^1.120.20",
+    "nitropack": "^2.13.1",
+    "typescript": "^5.9.3",
+    "vinxi": "^0.5.11"
   },
   "dependencies": {
     "@auth/core": "^0.37.0",
-    "@convex-dev/auth": "^0.0.91"
+    "@convex-dev/auth": "^0.0.91",
+    "convex": "^1.17.0",
+    "nitro": "^3.0.260311-beta"
   }
 }
