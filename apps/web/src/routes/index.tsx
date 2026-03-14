@@ -66,7 +66,7 @@ function Home() {
       {/* Hero Section */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary-light/30 via-transparent to-transparent" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32 relative">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-[70px] md:py-32 relative">
           <div className="text-center max-w-4xl mx-auto">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary-light/50 rounded-full mb-6">
               <SparkleIcon className="w-4 h-4 text-primary" />
@@ -115,7 +115,7 @@ function Home() {
                   <span className="w-1 h-6 bg-primary rounded-full" />
                   {category.category}
                 </h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
                   {category.tools.map((tool) => (
                     <ToolCard key={tool.name} {...tool} />
                   ))}
@@ -170,18 +170,18 @@ function ToolCard({ name, description, icon: Icon, href, badge }: { name: string
   return (
     <Link
       to={href}
-      className="group bg-background p-6 rounded-xl border border-neutral hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all hover:-translate-y-1"
+      className="group bg-background p-4 sm:p-6 rounded-xl border border-neutral hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all hover:-translate-y-1"
     >
       {badge && (
-        <span className="inline-block px-2 py-0.5 bg-primary-light text-primary text-xs font-medium rounded-full mb-3">
+        <span className="inline-block px-2 py-0.5 bg-primary-light text-primary text-xs font-medium rounded-full mb-2 sm:mb-3">
           {badge}
         </span>
       )}
-      <div className="w-12 h-12 bg-primary-light rounded-xl flex items-center justify-center mb-4 group-hover:bg-primary transition-colors">
-        <Icon className="w-6 h-6 text-primary group-hover:text-white transition-colors" />
+      <div className="w-10 h-10 sm:w-12 sm:h-12 bg-primary-light rounded-xl flex items-center justify-center mb-3 sm:mb-4 group-hover:bg-primary transition-colors">
+        <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-primary group-hover:text-white transition-colors" />
       </div>
-      <h4 className="font-semibold text-accent mb-2">{name}</h4>
-      <p className="text-sm text-accent/60">{description}</p>
+      <h4 className="font-semibold text-accent mb-1 sm:mb-2 text-sm sm:text-base">{name}</h4>
+      <p className="text-xs sm:text-sm text-accent/60 line-clamp-2">{description}</p>
     </Link>
   )
 }

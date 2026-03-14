@@ -48,7 +48,7 @@ function SummarizePdfPage() {
           </div>
         </section>
 
-        <section className="py-12 sm:py-16">
+        <section className="py-[38px] sm:py-16">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             {!file ? (
               <FileUploader accept=".pdf" multiple={false} onFilesSelected={handleFilesSelected} />

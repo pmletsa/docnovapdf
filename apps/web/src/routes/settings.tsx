@@ -12,14 +12,14 @@ function SettingsPage() {
   return (
     <DashboardLayout>
       <div className="flex flex-col h-full">
-        <header className="bg-white border-b border-gray-100 px-8 py-4">
-          <h1 className="text-xl font-bold text-gray-900">Settings</h1>
+        <header className="bg-white border-b border-gray-100 px-4 sm:px-6 lg:px-8 py-4">
+          <h1 className="text-lg sm:text-xl font-bold text-gray-900">Settings</h1>
         </header>
 
-        <main className="flex-1 p-8 overflow-auto">
+        <main className="flex-1 p-4 sm:p-6 lg:p-8 overflow-auto">
           <div className="max-w-3xl">
             {/* Tabs */}
-            <div className="flex gap-1 mb-8 bg-gray-100 p-1 rounded-xl w-fit">
+            <div className="flex gap-1 mb-6 sm:mb-8 bg-gray-100 p-1 rounded-xl w-full sm:w-fit overflow-x-auto">
               {['profile', 'security', 'notifications', 'billing'].map((tab) => (
                 <button
                   key={tab}
@@ -53,7 +53,7 @@ function SettingsPage() {
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-2">First Name</label>
                       <input

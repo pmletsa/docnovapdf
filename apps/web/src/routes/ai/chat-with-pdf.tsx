@@ -51,7 +51,7 @@ function ChatWithPdfPage() {
     <div className="min-h-screen bg-background flex flex-col">
       <Navbar />
       <main className="flex-1 flex flex-col">
-        <section className="bg-gradient-to-br from-primary-light/30 via-transparent to-transparent py-8 sm:py-12">
+        <section className="bg-gradient-to-br from-primary-light/30 via-transparent to-transparent py-[22px] sm:py-12">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div className="inline-flex items-center gap-2 px-3 py-1 bg-primary-light/50 rounded-full mb-4">
               <SparkleIcon className="w-4 h-4 text-primary" />

@@ -44,7 +44,7 @@ function MergePdfPage() {
     <div className="min-h-screen bg-[#f8f9fb] flex flex-col">
       <Navbar />
 
-      <main className="flex-1 px-6 py-8 lg:py-10">
+      <main className="flex-1 px-6 py-[22px] lg:py-10">
         <div className="max-w-3xl mx-auto">
           {/* Breadcrumb */}
           <nav className="flex items-center gap-2 text-sm mb-6 text-gray-500">

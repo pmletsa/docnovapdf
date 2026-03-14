@@ -1,4 +1,5 @@
 import { Link, useLocation } from '@tanstack/react-router'
+import { useState } from 'react'
 import type { ReactNode } from 'react'
 
 interface DashboardLayoutProps {
@@ -8,6 +9,7 @@ interface DashboardLayoutProps {
 export function DashboardLayout({ children }: DashboardLayoutProps) {
   const location = useLocation()
   const currentPath = location.pathname
+  const [sidebarOpen, setSidebarOpen] = useState(false)
 
   const navItems = [
     { path: '/dashboard', label: 'Dashboard', icon: 'dashboard' },
@@ -20,8 +22,16 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
 
   return (
     <div className="min-h-screen bg-[#f8f9fb] flex">
+      {/* Mobile Overlay */}
+      {sidebarOpen && (
+        <div 
+          className="fixed inset-0 bg-black/50 z-40 lg:hidden"
+          onClick={() => setSidebarOpen(false)}
+        />
+      )}
+
       {/* Sidebar */}
-      <aside className="w-64 bg-white border-r border-gray-100 flex flex-col fixed h-screen">
+      <aside className={`w-64 bg-white border-r border-gray-100 flex flex-col fixed h-screen z-50 transition-transform duration-300 lg:translate-x-0 ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}>
         {/* Logo */}
         <div className="p-6 border-b border-gray-100">
           <Link to="/" className="flex items-center gap-3">
@@ -60,13 +70,33 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
             Upgrade Plan
           </Link>
         </div>
+
+        {/* Close button for mobile */}
+        <button 
+          onClick={() => setSidebarOpen(false)}
+          className="lg:hidden absolute top-4 right-4 p-2 text-gray-400 hover:text-gray-600"
+        >
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
       </aside>
 
       {/* Main Content */}
-      <div className="flex-1 flex flex-col ml-64">
+      <div className="flex-1 flex flex-col lg:ml-64">
         {/* Top Bar */}
-        <header className="bg-white border-b border-gray-100 px-8 py-4 flex items-center justify-between">
-          <div className="flex-1 max-w-xl">
+        <header className="bg-white border-b border-gray-100 px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between gap-4">
+          {/* Mobile menu button */}
+          <button 
+            onClick={() => setSidebarOpen(true)}
+            className="lg:hidden p-2 text-gray-400 hover:text-gray-600 -ml-2"
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+
+          <div className="flex-1 max-w-xl hidden sm:block">
             <div className="relative">
               <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none">
                 <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -81,7 +111,7 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
             </div>
           </div>
 
-          <div className="flex items-center gap-4 ml-6">
+          <div className="flex items-center gap-2 sm:gap-4 ml-auto sm:ml-6">
             <button className="p-2 text-gray-400 hover:text-gray-600 transition-colors relative cursor-pointer">
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />

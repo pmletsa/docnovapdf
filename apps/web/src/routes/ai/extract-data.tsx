@@ -41,7 +41,7 @@ function ExtractDataPage() {
     <div className="min-h-screen bg-background flex flex-col">
       <Navbar />
       <main className="flex-1">
-        <section className="bg-gradient-to-br from-primary-light/30 via-transparent to-transparent py-12 sm:py-16">
+        <section className="bg-gradient-to-br from-primary-light/30 via-transparent to-transparent py-[38px] sm:py-16">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div className="inline-flex items-center gap-2 px-3 py-1 bg-primary-light/50 rounded-full mb-4">
               <SparkleIcon className="w-4 h-4 text-primary" />
@@ -54,7 +54,7 @@ function ExtractDataPage() {
           </div>
         </section>
 
-        <section className="py-12 sm:py-16">
+        <section className="py-[38px] sm:py-16">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             {!file ? (
               <FileUploader accept=".pdf,.jpg,.jpeg,.png" multiple={false} onFilesSelected={handleFilesSelected} />
