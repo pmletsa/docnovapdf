@@ -1,19 +1,19 @@
 {
-  "name": "",
-  "short_name": "",
+  "name": "DocNova AI",
+  "short_name": "DocNova",
   "icons": [
     {
-      "src": "/android-chrome-192x192.png",
+      "src": "/logo.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "/android-chrome-512x512.png",
+      "src": "/logo.png",
       "sizes": "512x512",
       "type": "image/png"
     }
   ],
-  "theme_color": "#ffffff",
+  "theme_color": "#e53935",
   "background_color": "#ffffff",
   "display": "standalone"
 }
