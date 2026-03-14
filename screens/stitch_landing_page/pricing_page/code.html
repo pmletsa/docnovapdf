@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pricing - DocFlow AI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#e53734",
+                        "background-light": "#f8f6f6",
+                        "background-dark": "#211111",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<!-- Navigation -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-primary/10 px-6 py-4 lg:px-20">
+<div class="flex items-center gap-3 text-slate-900 dark:text-slate-100">
+<div class="flex h-8 w-8 items-center justify-center rounded bg-primary text-white">
+<span class="material-symbols-outlined">description</span>
+</div>
+<h2 class="text-lg font-bold leading-tight tracking-tight">DocFlow AI</h2>
+</div>
+<div class="flex flex-1 justify-end gap-8">
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Features</a>
+<a class="text-sm font-medium text-primary" href="#">Pricing</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Solutions</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Resources</a>
+</nav>
+<button class="flex min-w-[100px] cursor-pointer items-center justify-center rounded-lg bg-primary px-4 py-2 text-white text-sm font-bold tracking-wide hover:opacity-90 transition-opacity">
+                        Get Started
+                    </button>
+</div>
+</header>
+<main class="flex flex-col items-center py-12 px-6 lg:px-20">
+<!-- Hero Section -->
+<div class="max-w-4xl text-center mb-16">
+<h1 class="text-4xl md:text-5xl font-black leading-tight tracking-tight text-slate-900 dark:text-slate-100 mb-4">
+                        Simple, transparent pricing
+                    </h1>
+<p class="text-lg text-slate-600 dark:text-slate-400">
+                        Choose the plan that's right for your document workflow. No hidden fees.
+                    </p>
+</div>
+<!-- Pricing Cards -->
+<div class="grid w-full max-w-[1100px] grid-cols-1 gap-6 md:grid-cols-3 mb-20">
+<!-- Free Plan -->
+<div class="flex flex-col gap-6 rounded-xl border border-primary/10 bg-white dark:bg-slate-900 p-8 shadow-sm">
+<div class="flex flex-col gap-2">
+<h3 class="text-lg font-bold text-slate-900 dark:text-slate-100">Free</h3>
+<div class="flex items-baseline gap-1">
+<span class="text-4xl font-black tracking-tight text-slate-900 dark:text-slate-100">$0</span>
+<span class="text-sm font-medium text-slate-500">/mo</span>
+</div>
+<p class="text-sm text-slate-500">Perfect for individuals just getting started.</p>
+</div>
+<button class="flex w-full cursor-pointer items-center justify-center rounded-lg border-2 border-primary/20 bg-background-light dark:bg-slate-800 h-11 px-4 text-slate-900 dark:text-slate-100 text-sm font-bold hover:bg-primary/5 transition-colors">
+                            Get Started
+                        </button>
+<div class="flex flex-col gap-4 pt-4">
+<div class="flex items-center gap-3 text-sm">
+<span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
+                                5 documents / month
+                            </div>
+<div class="flex items-center gap-3 text-sm">
+<span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
+                                Basic AI analysis
+                            </div>
+<div class="flex items-center gap-3 text-sm">
+<span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
+                                Community support
+                            </div>
+<div class="flex items-center gap-3 text-sm opacity-50">
+<span class="material-symbols-outlined text-[20px]">cancel</span>
+                                Custom templates
+                            </div>
+</div>
+</div>
+<!-- Pro Plan -->
+<div class="relative flex flex-col gap-6 rounded-xl border-2 border-primary bg-white dark:bg-slate-900 p-8 shadow-xl scale-105 z-10">
+<div class="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-primary px-4 py-1 text-xs font-bold uppercase tracking-widest text-white">
+                            Most Popular
+                        </div>
+<div class="flex flex-col gap-2">
+<h3 class="text-lg font-bold text-slate-900 dark:text-slate-100">Pro</h3>
+<div class="flex items-baseline gap-1">
+<span class="text-4xl font-black tracking-tight text-slate-900 dark:text-slate-100">$29</span>
+<span class="text-sm font-medium text-slate-500">/mo</span>
+</div>
+<p class="text-sm text-slate-500">Accelerate your workflow with advanced tools.</p>
+</div>
+<button class="flex w-full cursor-pointer items-center justify-center rounded-lg bg-primary h-11 px-4 text-white text-sm font-bold shadow-lg shadow-primary/20 hover:opacity-90 transition-opacity">
+                            Go Pro
+                        </button>
+<div class="flex flex-col gap-4 pt-4">
+<div class="flex items-center gap-3 text-sm font-semibold">
+<span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
+                                Unlimited documents
+                            </div>
+<div class="flex items-center gap-3 text-sm">
+<span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
+                                Advanced AI extraction
+                            </div>
+<div class="flex items-center gap-3 text-sm">
+<span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
+                                Priority email support
+                            </div>
+<div class="flex items-center gap-3 text-sm">
+<span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
+                                Custom templates
+                            </div>
+</div>
+</div>
+<!-- Business Plan -->
+<div class="flex flex-col gap-6 rounded-xl border border-primary/10 bg-white dark:bg-slate-900 p-8 shadow-sm">
+<div class="flex flex-col gap-2">
+<h3 class="text-lg font-bold text-slate-900 dark:text-slate-100">Business</h3>
+<div class="flex items-baseline gap-1">
+<span class="text-4xl font-black tracking-tight text-slate-900 dark:text-slate-100">$99</span>
+<span class="text-sm font-medium text-slate-500">/mo</span>
+</div>
+<p class="text-sm text-slate-500">Full power for large teams and organizations.</p>
+</div>
+<button class="flex w-full cursor-pointer items-center justify-center rounded-lg border-2 border-primary/20 bg-background-light dark:bg-slate-800 h-11 px-4 text-slate-900 dark:text-slate-100 text-sm font-bold hover:bg-primary/5 transition-colors">
+                            Contact Sales
+                        </button>
+<div class="flex flex-col gap-4 pt-4">
+<div class="flex items-center gap-3 text-sm">
+<span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
+                                Enterprise-grade security
+                            </div>
+<div class="flex items-center gap-3 text-sm">
+<span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
+                                Dedicated account manager
+                            </div>
+<div class="flex items-center gap-3 text-sm">
+<span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
+                                API access
+                            </div>
+<div class="flex items-center gap-3 text-sm">
+<span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
+                                SSO &amp; SAML
+                            </div>
+</div>
+</div>
+</div>
+<!-- Comparison Table -->
+<div class="w-full max-w-[1100px]">
+<h2 class="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100 mb-8 px-4 text-center md:text-left">Compare features</h2>
+<div class="overflow-hidden rounded-xl border border-primary/10 bg-white dark:bg-slate-900 shadow-sm">
+<div class="overflow-x-auto">
+<table class="w-full min-w-[700px] border-collapse text-left">
+<thead>
+<tr class="bg-primary/5">
+<th class="px-6 py-5 text-sm font-bold text-slate-900 dark:text-slate-100">Feature</th>
+<th class="px-6 py-5 text-sm font-bold text-slate-900 dark:text-slate-100 text-center">Free</th>
+<th class="px-6 py-5 text-sm font-bold text-slate-900 dark:text-slate-100 text-center">Pro</th>
+<th class="px-6 py-5 text-sm font-bold text-slate-900 dark:text-slate-100 text-center">Business</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-primary/5">
+<tr>
+<td class="px-6 py-4 text-sm font-medium text-slate-900 dark:text-slate-100">AI Analysis</td>
+<td class="px-6 py-4 text-sm text-center text-slate-600 dark:text-slate-400">Basic</td>
+<td class="px-6 py-4 text-sm text-center text-slate-600 dark:text-slate-400">Advanced</td>
+<td class="px-6 py-4 text-sm text-center text-slate-600 dark:text-slate-400">Custom Models</td>
+</tr>
+<tr>
+<td class="px-6 py-4 text-sm font-medium text-slate-900 dark:text-slate-100">Monthly Documents</td>
+<td class="px-6 py-4 text-sm text-center text-slate-600 dark:text-slate-400">5</td>
+<td class="px-6 py-4 text-sm text-center text-slate-600 dark:text-slate-400">Unlimited</td>
+<td class="px-6 py-4 text-sm text-center text-slate-600 dark:text-slate-400">Unlimited</td>
+</tr>
+<tr>
+<td class="px-6 py-4 text-sm font-medium text-slate-900 dark:text-slate-100">Team Members</td>
+<td class="px-6 py-4 text-sm text-center text-slate-600 dark:text-slate-400">1</td>
+<td class="px-6 py-4 text-sm text-center text-slate-600 dark:text-slate-400">Up to 10</td>
+<td class="px-6 py-4 text-sm text-center text-slate-600 dark:text-slate-400">Unlimited</td>
+</tr>
+<tr>
+<td class="px-6 py-4 text-sm font-medium text-slate-900 dark:text-slate-100">Support</td>
+<td class="px-6 py-4 text-sm text-center text-slate-600 dark:text-slate-400">Community</td>
+<td class="px-6 py-4 text-sm text-center text-slate-600 dark:text-slate-400">Priority Email</td>
+<td class="px-6 py-4 text-sm text-center text-slate-600 dark:text-slate-400">24/7 Dedicated</td>
+</tr>
+<tr>
+<td class="px-6 py-4 text-sm font-medium text-slate-900 dark:text-slate-100">API Access</td>
+<td class="px-6 py-4 text-center">
+<span class="material-symbols-outlined text-slate-300">remove</span>
+</td>
+<td class="px-6 py-4 text-center">
+<span class="material-symbols-outlined text-slate-300">remove</span>
+</td>
+<td class="px-6 py-4 text-center">
+<span class="material-symbols-outlined text-primary font-bold">check</span>
+</td>
+</tr>
+<tr>
+<td class="px-6 py-4 text-sm font-medium text-slate-900 dark:text-slate-100">Custom Branding</td>
+<td class="px-6 py-4 text-center">
+<span class="material-symbols-outlined text-slate-300">remove</span>
+</td>
+<td class="px-6 py-4 text-center">
+<span class="material-symbols-outlined text-primary font-bold">check</span>
+</td>
+<td class="px-6 py-4 text-center">
+<span class="material-symbols-outlined text-primary font-bold">check</span>
+</td>
+</tr>
+<tr>
+<td class="px-6 py-4 text-sm font-medium text-slate-900 dark:text-slate-100">SLA Guarantee</td>
+<td class="px-6 py-4 text-center">
+<span class="material-symbols-outlined text-slate-300">remove</span>
+</td>
+<td class="px-6 py-4 text-center">
+<span class="material-symbols-outlined text-slate-300">remove</span>
+</td>
+<td class="px-6 py-4 text-center">
+<span class="material-symbols-outlined text-primary font-bold">check</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- Trust Badges -->
+<div class="mt-24 w-full text-center">
+<p class="text-sm font-bold uppercase tracking-widest text-slate-400 mb-8">Trusted by industry leaders</p>
+<div class="flex flex-wrap justify-center items-center gap-12 opacity-40 grayscale">
+<span class="text-xl font-bold italic tracking-tighter">TECHSTREAM</span>
+<span class="text-xl font-black">DATACLOUD</span>
+<span class="text-xl font-semibold">InnovaCorp</span>
+<span class="text-xl tracking-tight">Vantage Point</span>
+<span class="text-xl font-serif">Aether</span>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="mt-20 border-t border-primary/10 py-12 px-6 lg:px-20 bg-white dark:bg-slate-900">
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 max-w-[1100px] mx-auto">
+<div class="col-span-2 lg:col-span-2">
+<div class="flex items-center gap-3 mb-6">
+<div class="flex h-6 w-6 items-center justify-center rounded bg-primary text-white">
+<span class="material-symbols-outlined text-xs">description</span>
+</div>
+<h2 class="text-md font-bold text-slate-900 dark:text-slate-100">DocFlow AI</h2>
+</div>
+<p class="text-sm text-slate-500 max-w-[280px]">
+                            Empowering teams with intelligent document processing and workflow automation.
+                        </p>
+</div>
+<div>
+<h4 class="text-sm font-bold text-slate-900 dark:text-slate-100 mb-4">Product</h4>
+<ul class="space-y-2 text-sm text-slate-500">
+<li><a class="hover:text-primary" href="#">Features</a></li>
+<li><a class="hover:text-primary" href="#">Integrations</a></li>
+<li><a class="hover:text-primary" href="#">API</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-sm font-bold text-slate-900 dark:text-slate-100 mb-4">Company</h4>
+<ul class="space-y-2 text-sm text-slate-500">
+<li><a class="hover:text-primary" href="#">About</a></li>
+<li><a class="hover:text-primary" href="#">Careers</a></li>
+<li><a class="hover:text-primary" href="#">Contact</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-sm font-bold text-slate-900 dark:text-slate-100 mb-4">Legal</h4>
+<ul class="space-y-2 text-sm text-slate-500">
+<li><a class="hover:text-primary" href="#">Privacy</a></li>
+<li><a class="hover:text-primary" href="#">Terms</a></li>
+<li><a class="hover:text-primary" href="#">Security</a></li>
+</ul>
+</div>
+</div>
+<div class="max-w-[1100px] mx-auto mt-12 pt-8 border-t border-primary/5 text-center text-xs text-slate-400">
+                    © 2024 DocFlow AI Inc. All rights reserved.
+                </div>
+</footer>
+</div>
+</div>
+</body></html>

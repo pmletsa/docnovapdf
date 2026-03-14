@@ -1,0 +1,21 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-primary: #E53935;
+  --color-primary-dark: #B71C1C;
+  --color-primary-light: #FFCDD2;
+  --color-background: #FFFFFF;
+  --color-neutral: #F5F5F5;
+  --color-accent: #1E1E1E;
+}
+
+@layer base {
+  html,
+  body {
+    @apply text-accent bg-background antialiased;
+  }
+
+  .using-mouse * {
+    outline: none !important;
+  }
+}
