@@ -7,29 +7,36 @@ export const Route = createFileRoute('/tools/')({
   component: ToolsDirectoryPage,
 })
 
-type ToolCategory = 'pdf' | 'conversion' | 'ocr' | 'ai'
+type ToolCategory = 'converter' | 'compressor' | 'merge-split' | 'sign-watermark' | 'automation' | 'ai-intelligence'
 
 const tools = {
-  pdf: [
-    { name: 'Merge PDF', description: 'Combine multiple PDFs into one', icon: 'merge', path: '/tools/merge-pdf' },
-    { name: 'Split PDF', description: 'Extract pages or split by range', icon: 'split', path: '/tools/split-pdf' },
-    { name: 'Compress PDF', description: 'Reduce file size without quality loss', icon: 'compress', path: '/tools/compress-pdf' },
-    { name: 'Edit PDF', description: 'Add text, images, and annotations', icon: 'edit', path: '/tools/edit-pdf' },
+  converter: [
+    { name: 'PDF to Word', description: 'Seamlessly swap between PDF and Word', icon: 'pdf-word', path: '/tools/pdf-to-word' },
+    { name: 'Word to PDF', description: 'Seamlessly swap between Word and PDF', icon: 'word-pdf', path: '/tools/word-to-pdf' },
+    { name: 'PDF to JPG', description: 'Seamlessly swap between PDF and JPG', icon: 'pdf-jpg', path: '/tools/pdf-to-jpg' },
+    { name: 'JPG to PDF', description: 'Seamlessly swap between JPG and PDF', icon: 'jpg-pdf', path: '/tools/jpg-to-pdf' },
   ],
-  conversion: [
-    { name: 'PDF to Word', description: 'Convert with perfect formatting', icon: 'pdf-word', path: '/tools/pdf-to-word' },
-    { name: 'Word to PDF', description: 'Create professional PDFs', icon: 'word-pdf', path: '/tools/word-to-pdf' },
-    { name: 'PDF to JPG', description: 'Convert pages to images', icon: 'pdf-jpg', path: '/tools/pdf-to-jpg' },
-    { name: 'JPG to PDF', description: 'Combine images into PDF', icon: 'jpg-pdf', path: '/tools/jpg-to-pdf' },
-  ],
-  ocr: [
+  compressor: [
+    { name: 'Compress PDF', description: 'Shrink large files for email without destroying quality', icon: 'compress', path: '/tools/compress-pdf' },
     { name: 'OCR PDF', description: 'Turn scans into searchable text', icon: 'ocr', path: '/tools/ocr-pdf' },
-    { name: 'Extract Text', description: 'Pull text from any document', icon: 'extract', path: '/tools/extract-text' },
   ],
-  ai: [
-    { name: 'AI Summary', description: 'Get key insights in seconds', icon: 'ai', path: '/tools/ai-summary', badge: 'AI' },
-    { name: 'AI Chat', description: 'Ask questions about your documents', icon: 'chat', path: '/tools/ai-chat', badge: 'AI' },
-    { name: 'Smart Extract', description: 'AI-powered data extraction', icon: 'smart', path: '/tools/smart-extract', badge: 'AI' },
+  'merge-split': [
+    { name: 'Merge PDF', description: 'Combine multiple formats into one file', icon: 'merge', path: '/tools/merge-pdf' },
+    { name: 'Split PDF', description: 'Extract specific pages from documents', icon: 'split', path: '/tools/split-pdf' },
+  ],
+  'sign-watermark': [
+    { name: 'Sign PDF', description: 'Add signatures or text overlays securely', icon: 'edit', path: '/tools/sign-pdf' },
+    { name: 'Watermark PDF', description: 'Add custom watermarks to your documents', icon: 'watermark', path: '/tools/watermark-pdf' },
+  ],
+  'automation': [
+    { name: 'Batch Workflows', description: 'Multi-step processing in one click', icon: 'smart', path: '/tools/batch-workflows' },
+    { name: 'Auto Organize', description: 'Smart file naming and sorting', icon: 'merge', path: '/tools/auto-organize' },
+    { name: 'Custom Recipes', description: 'Save your favorite multi-step flows', icon: 'extract', path: '/tools/custom-recipes' },
+  ],
+  'ai-intelligence': [
+    { name: 'Chat with Any Doc', description: 'Ask questions about your documents', icon: 'chat', path: '/tools/ai-chat', badge: 'AI' },
+    { name: 'Smart Summarize', description: 'Turn 20 pages into a 5-slide outline', icon: 'smart', path: '/tools/ai-summary', badge: 'AI' },
+    { name: 'Content Extract', description: 'AI-powered data and insight extraction', icon: 'extract', path: '/tools/smart-extract', badge: 'AI' },
   ],
 }
 
@@ -39,13 +46,15 @@ function ToolsDirectoryPage() {
 
   const categories = [
     { id: 'all' as const, label: 'All Tools' },
-    { id: 'pdf' as ToolCategory, label: 'PDF Tools' },
-    { id: 'conversion' as ToolCategory, label: 'Conversion Tools' },
-    { id: 'ocr' as ToolCategory, label: 'OCR Tools' },
-    { id: 'ai' as ToolCategory, label: 'AI Tools' },
+    { id: 'converter' as ToolCategory, label: 'Universal Converter' },
+    { id: 'compressor' as ToolCategory, label: 'Smart Compressor' },
+    { id: 'merge-split' as ToolCategory, label: 'Merge & Split' },
+    { id: 'sign-watermark' as ToolCategory, label: 'Quick Sign & Watermark' },
+    { id: 'automation' as ToolCategory, label: 'Smart Automation' },
+    { id: 'ai-intelligence' as ToolCategory, label: 'AI Intelligence' },
   ]
 
-  const allTools = [...tools.pdf, ...tools.conversion, ...tools.ocr, ...tools.ai]
+  const allTools = [...tools.converter, ...tools.compressor, ...tools['merge-split'], ...tools['sign-watermark'], ...tools.automation, ...tools['ai-intelligence']]
   const filteredTools = searchQuery 
     ? allTools.filter(tool => 
         tool.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -59,14 +68,21 @@ function ToolsDirectoryPage() {
 
       <main className="flex-1">
         {/* Header Section */}
-        <section className="bg-white py-12 border-b border-gray-100">
-          <div className="max-w-5xl mx-auto px-6 text-center">
-            <h1 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">
-              Every tool you need to work with PDFs
+        <section className="relative overflow-hidden bg-gradient-to-br from-[#ffebee] via-white to-white py-16 md:py-20 border-b border-gray-100">
+          <div className="absolute inset-0 bg-gradient-to-br from-[#e53935]/5 via-transparent to-transparent" />
+          <div className="max-w-5xl mx-auto px-6 text-center relative">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#e53935]/10 rounded-full mb-6">
+              <svg className="w-4 h-4 text-[#e53935]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+              <span className="text-sm font-medium text-[#e53935]">All Tools in One Place</span>
+            </div>
+            <h1 className="text-4xl md:text-5xl font-black text-gray-900 mb-4">
+              Zero-Cloud Document Processing
             </h1>
-            <p className="text-gray-600 text-lg max-w-2xl mx-auto mb-8">
-              DocNova AI brings the power of artificial intelligence to your documents.
-              <br />Efficient, secure, and incredibly fast.
+            <p className="text-gray-600 text-lg md:text-xl max-w-2xl mx-auto mb-8">
+              100% private, lightning fast, AI-powered. Your documents never leave your device.
+              <br />Process files in 2 seconds, not 15.
             </p>
 
             {/* Search Bar */}
@@ -133,27 +149,8 @@ function ToolsDirectoryPage() {
               </>
             ) : (
               <>
-                {/* Essential PDF Tools */}
-                {(activeCategory === 'all' || activeCategory === 'pdf') && (
-                  <div className="mb-12">
-                    <h2 className="text-lg font-bold text-gray-900 mb-6 flex items-center gap-2">
-                      <span className="w-6 h-6 bg-[#ffebee] rounded flex items-center justify-center">
-                        <svg className="w-4 h-4 text-[#e53935]" viewBox="0 0 24 24" fill="currentColor">
-                          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z"/>
-                        </svg>
-                      </span>
-                      Essential PDF Tools
-                    </h2>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                      {tools.pdf.map((tool) => (
-                        <ToolCard key={tool.name} tool={tool} />
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                {/* Conversion Tools */}
-                {(activeCategory === 'all' || activeCategory === 'conversion') && (
+                {/* Universal Converter */}
+                {(activeCategory === 'all' || activeCategory === 'converter') && (
                   <div className="mb-12">
                     <h2 className="text-lg font-bold text-gray-900 mb-6 flex items-center gap-2">
                       <span className="w-6 h-6 bg-[#ffebee] rounded flex items-center justify-center">
@@ -161,37 +158,75 @@ function ToolsDirectoryPage() {
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
                         </svg>
                       </span>
-                      Conversion Tools
+                      Universal Converter
                     </h2>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                      {tools.conversion.map((tool) => (
+                      {tools.converter.map((tool) => (
                         <ToolCard key={tool.name} tool={tool} />
                       ))}
                     </div>
                   </div>
                 )}
 
-                {/* OCR Tools */}
-                {(activeCategory === 'all' || activeCategory === 'ocr') && (
+                {/* Smart Compressor */}
+                {(activeCategory === 'all' || activeCategory === 'compressor') && (
                   <div className="mb-12">
                     <h2 className="text-lg font-bold text-gray-900 mb-6 flex items-center gap-2">
                       <span className="w-6 h-6 bg-[#ffebee] rounded flex items-center justify-center">
                         <svg className="w-4 h-4 text-[#e53935]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
                         </svg>
                       </span>
-                      OCR Tools
+                      Smart Compressor
                     </h2>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                      {tools.ocr.map((tool) => (
+                      {tools.compressor.map((tool) => (
                         <ToolCard key={tool.name} tool={tool} />
                       ))}
                     </div>
                   </div>
                 )}
 
-                {/* AI & Advanced Tools */}
-                {(activeCategory === 'all' || activeCategory === 'ai') && (
+                {/* Merge & Split */}
+                {(activeCategory === 'all' || activeCategory === 'merge-split') && (
+                  <div className="mb-12">
+                    <h2 className="text-lg font-bold text-gray-900 mb-6 flex items-center gap-2">
+                      <span className="w-6 h-6 bg-[#ffebee] rounded flex items-center justify-center">
+                        <svg className="w-4 h-4 text-[#e53935]" viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z"/>
+                        </svg>
+                      </span>
+                      Merge & Split
+                    </h2>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                      {tools['merge-split'].map((tool) => (
+                        <ToolCard key={tool.name} tool={tool} />
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Quick Sign & Watermark */}
+                {(activeCategory === 'all' || activeCategory === 'sign-watermark') && (
+                  <div className="mb-12">
+                    <h2 className="text-lg font-bold text-gray-900 mb-6 flex items-center gap-2">
+                      <span className="w-6 h-6 bg-[#ffebee] rounded flex items-center justify-center">
+                        <svg className="w-4 h-4 text-[#e53935]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                        </svg>
+                      </span>
+                      Quick Sign & Watermark
+                    </h2>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                      {tools['sign-watermark'].map((tool) => (
+                        <ToolCard key={tool.name} tool={tool} />
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Smart Automation */}
+                {(activeCategory === 'all' || activeCategory === 'automation') && (
                   <div className="mb-12">
                     <h2 className="text-lg font-bold text-gray-900 mb-6 flex items-center gap-2">
                       <span className="w-6 h-6 bg-[#ffebee] rounded flex items-center justify-center">
@@ -199,10 +234,29 @@ function ToolsDirectoryPage() {
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                         </svg>
                       </span>
-                      AI & Advanced Tools
+                      Smart Automation
                     </h2>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                      {tools.ai.map((tool) => (
+                      {tools.automation.map((tool) => (
+                        <ToolCard key={tool.name} tool={tool} />
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* AI Intelligence */}
+                {(activeCategory === 'all' || activeCategory === 'ai-intelligence') && (
+                  <div className="mb-12">
+                    <h2 className="text-lg font-bold text-gray-900 mb-6 flex items-center gap-2">
+                      <span className="w-6 h-6 bg-[#ffebee] rounded flex items-center justify-center">
+                        <svg className="w-4 h-4 text-[#e53935]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                      </span>
+                      AI Intelligence
+                    </h2>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                      {tools['ai-intelligence'].map((tool) => (
                         <ToolCard key={tool.name} tool={tool} />
                       ))}
                     </div>
@@ -211,15 +265,17 @@ function ToolsDirectoryPage() {
               </>
             )}
 
-            {/* View All Button */}
-            <div className="flex justify-center mt-8">
-              <Link
-                to="/tools"
-                className="bg-[#e53935] hover:bg-[#d32f2f] text-white font-semibold py-3 px-8 rounded-full text-sm flex items-center gap-2 shadow-lg hover:shadow-xl transition-all cursor-pointer"
-              >
-                View All 24+ Tools
-              </Link>
-            </div>
+            {/* View All Button - Only show when not on All Tools tab */}
+            {activeCategory !== 'all' && (
+              <div className="flex justify-center mt-8">
+                <button
+                  onClick={() => setActiveCategory('all')}
+                  className="bg-[#e53935] hover:bg-[#d32f2f] text-white font-semibold py-3 px-8 rounded-full text-sm flex items-center gap-2 shadow-lg hover:shadow-xl transition-all cursor-pointer"
+                >
+                  View All Tools
+                </button>
+              </div>
+            )}
           </div>
         </section>
       </main>

@@ -99,9 +99,9 @@ export function Footer() {
         <div className="mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4">
             <div className="flex items-center gap-2">
-              <img src="/logo.png" alt="DocNova AI" className="w-8 h-8 rounded-lg" />
+              <img src="/logo.png" alt="PowerDocsAI" className="w-8 h-8 rounded-lg" />
               <span className="text-white font-bold">
-                DocNova<span className="text-primary">AI</span>
+                PowerDocs<span className="text-primary">AI</span>
               </span>
             </div>
             <span className="text-white/40">|</span>
@@ -114,7 +114,7 @@ export function Footer() {
               Powered by <span className="font-semibold">TelVex</span>
             </a>
           </div>
-          <p className="text-white/60 text-sm">© 2026 DocNovaAI. All rights reserved.</p>
+          <p className="text-white/60 text-sm">© 2026 PowerDocsAI. All rights reserved.</p>
         </div>
       </div>
     </footer>

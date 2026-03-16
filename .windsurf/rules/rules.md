@@ -4,7 +4,7 @@ trigger: always_on
 
 ### ✅ Task: Interactive Task Loop with User Feedback
 
-0. **Always give the summary of what was before running the userinput.py
+Please do not wait for count down, wait for user input. Do not proceed to next step until user input is received.
 
 1. **Check if `userinput.py` exists** in the root directory.
 

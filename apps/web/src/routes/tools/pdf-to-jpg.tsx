@@ -82,14 +82,14 @@ function PdfToJpgPage() {
             <div className="flex flex-wrap justify-center gap-3" onClick={(e) => e.stopPropagation()}>
               <button 
                 onClick={() => fileInputRef.current?.click()}
-                className="bg-[#e53935] hover:bg-[#d32f2f] text-white font-semibold py-2.5 px-5 rounded-lg flex items-center gap-2 transition-all text-sm"
+                className="bg-[#e53935] hover:bg-[#d32f2f] text-white font-semibold py-2.5 px-5 rounded-lg flex items-center gap-2 transition-all text-sm cursor-pointer"
               >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
                 </svg>
                 Select PDF File
               </button>
-              <button className="bg-white border border-gray-200 hover:bg-gray-50 text-gray-700 font-semibold py-2.5 px-4 rounded-lg flex items-center gap-2 transition-all text-sm shadow-sm">
+              <button className="bg-white border border-gray-200 hover:bg-gray-50 text-gray-700 font-semibold py-2.5 px-4 rounded-lg flex items-center gap-2 transition-all text-sm shadow-sm cursor-pointer">
                 <svg className="w-5 h-5" viewBox="0 0 24 24">
                   <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
                   <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
@@ -98,7 +98,7 @@ function PdfToJpgPage() {
                 </svg>
                 Google Drive
               </button>
-              <button className="bg-white border border-gray-200 hover:bg-gray-50 text-gray-700 font-semibold py-2.5 px-4 rounded-lg flex items-center gap-2 transition-all text-sm shadow-sm">
+              <button className="bg-white border border-gray-200 hover:bg-gray-50 text-gray-700 font-semibold py-2.5 px-4 rounded-lg flex items-center gap-2 transition-all text-sm shadow-sm cursor-pointer">
                 <svg className="w-5 h-5" viewBox="0 0 24 24">
                   <path fill="#0061FF" d="M12 2L6 7l6 5-6 5 6 5 6-5-6-5 6-5-6-5z"/>
                 </svg>
@@ -119,7 +119,7 @@ function PdfToJpgPage() {
                 </h3>
                 <button 
                   onClick={() => fileInputRef.current?.click()}
-                  className="text-[#e53935] text-sm font-semibold hover:underline"
+                  className="text-[#e53935] text-sm font-semibold hover:underline cursor-pointer"
                 >
                   Change File
                 </button>
@@ -138,7 +138,7 @@ function PdfToJpgPage() {
                   </div>
                   <button 
                     onClick={() => setFile(null)}
-                    className="p-2 text-gray-300 hover:text-gray-500 transition-colors"
+                    className="p-2 text-gray-300 hover:text-gray-500 transition-colors cursor-pointer"
                   >
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
@@ -172,7 +172,7 @@ function PdfToJpgPage() {
                 <button 
                   onClick={handleConvert}
                   disabled={isProcessing}
-                  className="bg-[#e53935] hover:bg-[#d32f2f] text-white font-semibold py-3.5 px-10 rounded-full text-base flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="bg-[#e53935] hover:bg-[#d32f2f] text-white font-semibold py-3.5 px-10 rounded-full text-base flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
                 >
                   Convert to JPG
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

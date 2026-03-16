@@ -1,5 +1,5 @@
 {
-  "name": "docnova",
+  "name": "powerdocs-ai",
   "private": true,
   "workspaces": [
     "apps/*",

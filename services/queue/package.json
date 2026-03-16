@@ -1,5 +1,5 @@
 {
-  "name": "@docnova/queue",
+  "name": "@powerdocs-ai/queue",
   "version": "1.0.0",
   "main": "producer.ts",
   "scripts": {

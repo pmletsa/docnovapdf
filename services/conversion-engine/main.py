@@ -5,10 +5,27 @@ Uses LibreOffice and Pandoc for processing.
 """
 
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-from typing import Optional
+from typing import Optional, List
+import tempfile
+import os
+
+from workers.pdf_to_word import pdf_to_word
+from workers.word_to_pdf import word_to_pdf
+from workers.pdf_to_jpg import pdf_to_jpg
+from workers.jpg_to_pdf import jpg_to_pdf
+from utils import download_file, upload_file, cleanup_files
 
 app = FastAPI(title="DocNova Conversion Engine", version="1.0.0")
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 class ConvertRequest(BaseModel):
@@ -23,27 +40,115 @@ async def health_check():
 
 
 @app.post("/pdf-to-word")
-async def pdf_to_word(request: ConvertRequest):
+async def pdf_to_word_endpoint(request: ConvertRequest):
     """Convert PDF to Word document."""
-    return {"status": "processing", "conversion": "pdf-to-word"}
+    temp_files = []
+    
+    try:
+        input_path = await download_file(request.file_url)
+        temp_files.append(input_path)
+        
+        output_file = tempfile.mktemp(suffix='.docx')
+        temp_files.append(output_file)
+        
+        result_path = await pdf_to_word(input_path, output_file)
+        
+        return {
+            "status": "success",
+            "conversion": "pdf-to-word",
+            "output_path": result_path,
+            "file_size": os.path.getsize(result_path)
+        }
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+    finally:
+        cleanup_files(*temp_files)
 
 
 @app.post("/word-to-pdf")
-async def word_to_pdf(request: ConvertRequest):
+async def word_to_pdf_endpoint(request: ConvertRequest):
     """Convert Word document to PDF."""
-    return {"status": "processing", "conversion": "word-to-pdf"}
+    temp_files = []
+    
+    try:
+        input_path = await download_file(request.file_url)
+        temp_files.append(input_path)
+        
+        output_file = tempfile.mktemp(suffix='.pdf')
+        temp_files.append(output_file)
+        
+        result_path = await word_to_pdf(input_path, output_file)
+        
+        return {
+            "status": "success",
+            "conversion": "word-to-pdf",
+            "output_path": result_path,
+            "file_size": os.path.getsize(result_path)
+        }
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+    finally:
+        cleanup_files(*temp_files)
 
 
 @app.post("/pdf-to-jpg")
-async def pdf_to_jpg(request: ConvertRequest):
+async def pdf_to_jpg_endpoint(request: ConvertRequest):
     """Convert PDF pages to JPG images."""
-    return {"status": "processing", "conversion": "pdf-to-jpg"}
+    temp_files = []
+    
+    try:
+        input_path = await download_file(request.file_url)
+        temp_files.append(input_path)
+        
+        output_dir = tempfile.mkdtemp()
+        temp_files.append(output_dir)
+        
+        quality = request.options.get('quality', 'high') if request.options else 'high'
+        output_paths = await pdf_to_jpg(input_path, output_dir, quality=quality)
+        
+        return {
+            "status": "success",
+            "conversion": "pdf-to-jpg",
+            "output_files": output_paths,
+            "page_count": len(output_paths)
+        }
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+    finally:
+        cleanup_files(*temp_files)
 
 
 @app.post("/jpg-to-pdf")
-async def jpg_to_pdf(request: ConvertRequest):
+async def jpg_to_pdf_endpoint(request: ConvertRequest):
     """Convert JPG images to PDF."""
-    return {"status": "processing", "conversion": "jpg-to-pdf"}
+    temp_files = []
+    
+    try:
+        # Support multiple image URLs
+        file_urls = request.options.get('file_urls', [request.file_url]) if request.options else [request.file_url]
+        
+        input_paths = []
+        for url in file_urls:
+            path = await download_file(url)
+            temp_files.append(path)
+            input_paths.append(path)
+        
+        output_file = tempfile.mktemp(suffix='.pdf')
+        temp_files.append(output_file)
+        
+        result_path = await jpg_to_pdf(input_paths, output_file)
+        
+        return {
+            "status": "success",
+            "conversion": "jpg-to-pdf",
+            "output_path": result_path,
+            "file_size": os.path.getsize(result_path),
+            "image_count": len(input_paths)
+        }
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+    finally:
+        cleanup_files(*temp_files)
 
 
 @app.post("/pdf-to-excel")

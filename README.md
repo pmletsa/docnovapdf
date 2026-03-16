@@ -1,11 +1,11 @@
-# DocNovaAI
+# PowerDocsAI
 
 AI-Powered PDF Tools Platform - A modern document processing solution.
 
 ## Project Structure
 
 ```
-docnova/
+powerdocs/
 ├── apps/
 │   └── web/                    # TanStack Start frontend
 │       ├── src/
@@ -105,4 +105,4 @@ MIT
 ---
 
 Built by [TelVex](https://telvex.net)
-# docnovapdf
+# PowerDocsAI

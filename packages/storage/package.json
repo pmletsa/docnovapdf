@@ -1,5 +1,5 @@
 {
-  "name": "@docnova/storage",
+  "name": "@powerdocs-ai/storage",
   "version": "1.0.0",
   "main": "index.ts",
   "types": "index.ts",

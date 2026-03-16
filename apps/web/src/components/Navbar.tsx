@@ -21,10 +21,10 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Link to="/" className="flex items-center gap-1.5 sm:gap-2">
-            <img src="/logo.png" alt="DocNova AI" className="w-6 h-6 sm:w-8 sm:h-8 rounded-lg" />
+            <img src="/logo.png" alt="PowerDocsAI" className="w-6 h-6 sm:w-8 sm:h-8 rounded-lg" />
             <div className="flex flex-col">
               <span className="text-base sm:text-xl font-bold text-accent leading-tight">
-                DocNova<span className="text-primary">AI</span>
+                PowerDocs<span className="text-primary">AI</span>
               </span>
               <span className="text-[8px] sm:text-[10px] text-accent/50 leading-none">by TelVex</span>
             </div>

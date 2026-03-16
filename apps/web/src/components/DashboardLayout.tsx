@@ -35,9 +35,9 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
         {/* Logo */}
         <div className="p-6 border-b border-gray-100">
           <Link to="/" className="flex items-center gap-3">
-            <img src="/logo.png" alt="DocNova AI" className="w-10 h-10 rounded-xl" />
+            <img src="/logo.png" alt="PowerDocsAI" className="w-10 h-10 rounded-xl" />
             <div>
-              <span className="font-bold text-gray-900">DocNova AI</span>
+              <span className="font-bold text-gray-900">PowerDocsAI</span>
               <p className="text-xs text-gray-500">Intelligent Workflows</p>
             </div>
           </Link>

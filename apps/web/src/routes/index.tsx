@@ -6,54 +6,44 @@ export const Route = createFileRoute('/')({
   component: Home,
 })
 
-const pdfTools = [
+const featuredTools = [
   {
-    category: 'Convert',
+    category: 'Universal Converter',
     tools: [
-      { name: 'PDF to Word', description: 'Convert PDF to editable Word documents', icon: FileTextIcon, href: '/tools/pdf-to-word' },
+      { name: 'PDF to Word', description: 'Seamlessly swap between PDF and Word', icon: FileTextIcon, href: '/tools/pdf-to-word' },
       { name: 'Word to PDF', description: 'Convert Word documents to PDF format', icon: FileTextIcon, href: '/tools/word-to-pdf' },
       { name: 'PDF to JPG', description: 'Convert PDF pages to JPG images', icon: ImageIcon, href: '/tools/pdf-to-jpg' },
       { name: 'JPG to PDF', description: 'Convert images to PDF documents', icon: ImageIcon, href: '/tools/jpg-to-pdf' },
     ],
   },
   {
-    category: 'Organize',
+    category: 'AI Intelligence',
     tools: [
-      { name: 'Merge PDF', description: 'Combine multiple PDFs into one file', icon: MergeIcon, href: '/tools/merge-pdf' },
-      { name: 'Split PDF', description: 'Separate PDF pages into multiple files', icon: SplitIcon, href: '/tools/split-pdf' },
-      { name: 'Compress PDF', description: 'Reduce PDF file size without losing quality', icon: CompressIcon, href: '/tools/compress-pdf' },
-      { name: 'OCR PDF', description: 'Extract text from scanned documents', icon: ScanIcon, href: '/tools/ocr-pdf' },
-    ],
-  },
-  {
-    category: 'AI Features',
-    tools: [
-      { name: 'Chat with PDF', description: 'Ask questions about your PDF content', icon: ChatIcon, href: '/ai/chat-with-pdf', badge: 'AI' },
-      { name: 'Summarize PDF', description: 'Get AI-powered document summaries', icon: SparkleIcon, href: '/ai/summarize-pdf', badge: 'AI' },
-      { name: 'Extract Data', description: 'Extract structured data with AI', icon: ExtractIcon, href: '/ai/extract-data', badge: 'AI' },
+      { name: 'Chat with Any Doc', description: 'Ask questions about your documents', icon: ChatIcon, href: '/ai/chat-with-pdf', badge: 'AI' },
+      { name: 'Smart Summarize', description: 'Turn 20 pages into a 5-slide outline', icon: SparkleIcon, href: '/ai/summarize-pdf', badge: 'AI' },
     ],
   },
 ]
 
 const features = [
   {
-    title: 'Fast & Secure',
-    description: 'All processing happens in the cloud with enterprise-grade encryption. Your files are automatically deleted after processing.',
+    title: 'Zero-Cloud Processing',
+    description: 'Your documents never leave your device. 100% private, 100% offline. Process sensitive files with complete confidence.',
     icon: ShieldIcon,
   },
   {
-    title: 'No Installation',
-    description: 'Access all PDF tools directly from your browser. No software downloads or installations required.',
-    icon: CloudIcon,
-  },
-  {
-    title: 'High Quality',
-    description: 'Maintain the highest quality in all conversions and edits. No loss of formatting or resolution.',
+    title: 'Lightning Fast',
+    description: 'Convert files in 2 seconds, not 15. No splash screens, no sign-ups. Just instant results with a utility-first design.',
     icon: SparkleIcon,
   },
   {
-    title: 'Free to Use',
-    description: 'Most tools are completely free. Premium features available for power users and businesses.',
+    title: 'Smart Automation',
+    description: 'Multi-step workflows in one click. Compress, watermark, and rename batches instantly—regardless of format.',
+    icon: CloudIcon,
+  },
+  {
+    title: 'AI Content Intelligence',
+    description: 'Beyond format conversion. Chat with docs, extract insights, and transform content intelligently.',
     icon: GiftIcon,
   },
 ]
@@ -73,12 +63,11 @@ function Home() {
               <span className="text-sm font-medium text-primary">Powered by Advanced AI</span>
             </div>
             <h1 className="text-4xl md:text-6xl font-bold text-accent leading-tight">
-              AI-Powered PDF Tools
-              <span className="block text-primary mt-2">Smarter. Faster. Better.</span>
+              Power Your Documents with <span className="inline-flex items-center gap-2 px-3 py-1 bg-primary text-white rounded-lg text-3xl md:text-5xl">AI</span>
+              <span className="block text-primary mt-2">Private. Instant. Intelligent.</span>
             </h1>
             <p className="mt-6 text-lg md:text-xl text-accent/70 max-w-2xl mx-auto">
-              Transform your PDFs with cutting-edge AI. Convert, edit, extract data, summarize content, 
-              and automate workflows — all powered by intelligent document processing.
+              Merge, convert, analyze and automate documents in seconds.
             </p>
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link to="/tools" className="w-full sm:w-auto px-8 py-4 bg-primary text-white font-semibold rounded-xl hover:bg-primary-dark transition-all shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 hover:-translate-y-0.5 flex items-center justify-center gap-2 cursor-pointer">
@@ -90,7 +79,7 @@ function Home() {
               </Link>
             </div>
             <p className="mt-6 text-sm text-accent/50">
-              No registration required • AI-powered accuracy • Enterprise-grade security
+              100% Private • Lightning Fast • Zero-Cloud Processing • Works Offline
             </p>
           </div>
         </div>
@@ -101,7 +90,7 @@ function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-accent">
-              Every PDF Tool You Need
+              All Your Document Tools. Supercharged by AI.
             </h2>
             <p className="mt-3 sm:mt-4 text-base sm:text-lg text-accent/70 max-w-2xl mx-auto">
               Powerful tools to handle all your PDF tasks. Select a tool below to get started.
@@ -109,12 +98,22 @@ function Home() {
           </div>
 
           <div className="space-y-16">
-            {pdfTools.map((category) => (
+            {featuredTools.map((category, index) => (
               <div key={category.category}>
-                <h3 className="text-xl font-semibold text-accent mb-6 flex items-center gap-2">
-                  <span className="w-1 h-6 bg-primary rounded-full" />
-                  {category.category}
-                </h3>
+                <div className="flex items-center justify-between mb-6">
+                  <h3 className="text-xl font-semibold text-accent flex items-center gap-2">
+                    <span className="w-1 h-6 bg-primary rounded-full" />
+                    {category.category}
+                  </h3>
+                  {index === 0 && (
+                    <Link to="/tools" className="text-primary hover:text-primary-dark font-medium text-sm flex items-center gap-1 cursor-pointer">
+                      View All Tools
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </Link>
+                  )}
+                </div>
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
                   {category.tools.map((tool) => (
                     <ToolCard key={tool.name} {...tool} />
@@ -122,6 +121,12 @@ function Home() {
                 </div>
               </div>
             ))}
+          </div>
+
+          <div className="flex justify-center mt-12">
+            <Link to="/tools" className="px-8 py-4 bg-primary text-white font-semibold rounded-xl hover:bg-primary-dark transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 cursor-pointer">
+              Browse All Tools
+            </Link>
           </div>
         </div>
       </section>
@@ -142,6 +147,150 @@ function Home() {
             {features.map((feature) => (
               <FeatureCard key={feature.title} {...feature} />
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing Section */}
+      <section id="pricing" className="py-12 sm:py-16 md:py-20 bg-neutral/50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-accent">
+              Simple, Transparent Pricing
+            </h2>
+            <p className="mt-3 sm:mt-4 text-base sm:text-lg text-accent/70 max-w-2xl mx-auto">
+              Choose the plan that works best for you. All plans include zero-cloud processing.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {/* Free Plan */}
+            <div className="bg-background p-8 rounded-2xl border border-neutral hover:border-primary/30 transition-all">
+              <h3 className="text-xl font-bold text-accent mb-2">Free</h3>
+              <div className="mb-6">
+                <span className="text-4xl font-bold text-accent">$0</span>
+                <span className="text-accent/60">/month</span>
+              </div>
+              <ul className="space-y-3 mb-8">
+                <li className="flex items-start gap-2 text-accent/70">
+                  <svg className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>10 documents per month</span>
+                </li>
+                <li className="flex items-start gap-2 text-accent/70">
+                  <svg className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>All basic conversion tools</span>
+                </li>
+                <li className="flex items-start gap-2 text-accent/70">
+                  <svg className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>100% private processing</span>
+                </li>
+                <li className="flex items-start gap-2 text-accent/70">
+                  <svg className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Works offline</span>
+                </li>
+              </ul>
+              <Link to="/tools" className="block w-full px-6 py-3 bg-neutral text-accent font-semibold rounded-xl hover:bg-neutral/80 transition-colors text-center cursor-pointer">
+                Get Started
+              </Link>
+            </div>
+
+            {/* Pro Plan */}
+            <div className="bg-background p-8 rounded-2xl border-2 border-primary shadow-lg shadow-primary/10 relative">
+              <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-primary text-white text-sm font-semibold rounded-full">
+                Most Popular
+              </div>
+              <h3 className="text-xl font-bold text-accent mb-2">Pro</h3>
+              <div className="mb-6">
+                <span className="text-4xl font-bold text-accent">$9</span>
+                <span className="text-accent/60">/month</span>
+              </div>
+              <ul className="space-y-3 mb-8">
+                <li className="flex items-start gap-2 text-accent/70">
+                  <svg className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Unlimited documents</span>
+                </li>
+                <li className="flex items-start gap-2 text-accent/70">
+                  <svg className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>All conversion & automation tools</span>
+                </li>
+                <li className="flex items-start gap-2 text-accent/70">
+                  <svg className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>AI features (100 queries/month)</span>
+                </li>
+                <li className="flex items-start gap-2 text-accent/70">
+                  <svg className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Batch processing</span>
+                </li>
+                <li className="flex items-start gap-2 text-accent/70">
+                  <svg className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Priority support</span>
+                </li>
+              </ul>
+              <Link to="/tools" className="block w-full px-6 py-3 bg-primary text-white font-semibold rounded-xl hover:bg-primary-dark transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 text-center cursor-pointer">
+                Start Free Trial
+              </Link>
+            </div>
+
+            {/* Enterprise Plan */}
+            <div className="bg-background p-8 rounded-2xl border border-neutral hover:border-primary/30 transition-all">
+              <h3 className="text-xl font-bold text-accent mb-2">Enterprise</h3>
+              <div className="mb-6">
+                <span className="text-4xl font-bold text-accent">Custom</span>
+              </div>
+              <ul className="space-y-3 mb-8">
+                <li className="flex items-start gap-2 text-accent/70">
+                  <svg className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Everything in Pro</span>
+                </li>
+                <li className="flex items-start gap-2 text-accent/70">
+                  <svg className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Unlimited AI queries</span>
+                </li>
+                <li className="flex items-start gap-2 text-accent/70">
+                  <svg className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Team collaboration</span>
+                </li>
+                <li className="flex items-start gap-2 text-accent/70">
+                  <svg className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Custom workflows</span>
+                </li>
+                <li className="flex items-start gap-2 text-accent/70">
+                  <svg className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Dedicated support</span>
+                </li>
+              </ul>
+              <Link to="/tools" className="block w-full px-6 py-3 bg-neutral text-accent font-semibold rounded-xl hover:bg-neutral/80 transition-colors text-center cursor-pointer">
+                Contact Sales
+              </Link>
+            </div>
           </div>
         </div>
       </section>
@@ -223,44 +372,6 @@ function ImageIcon({ className }: { className?: string }) {
   )
 }
 
-function MergeIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M8 6h13" />
-      <path d="M8 12h13" />
-      <path d="M8 18h13" />
-      <path d="M3 6h.01" />
-      <path d="M3 12h.01" />
-      <path d="M3 18h.01" />
-    </svg>
-  )
-}
-
-function SplitIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M16 3h5v5" />
-      <path d="M8 3H3v5" />
-      <path d="M12 22v-8.3a4 4 0 0 0-1.172-2.872L3 3" />
-      <path d="m15 9 6-6" />
-    </svg>
-  )
-}
-
-function CompressIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242" />
-      <path d="M12 12v9" />
-      <path d="m8 17 4 4 4-4" />
-    </svg>
-  )
-}
-
-
-
-
-
 
 
 
@@ -307,35 +418,10 @@ function GiftIcon({ className }: { className?: string }) {
   )
 }
 
-function ScanIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M3 7V5a2 2 0 0 1 2-2h2" />
-      <path d="M17 3h2a2 2 0 0 1 2 2v2" />
-      <path d="M21 17v2a2 2 0 0 1-2 2h-2" />
-      <path d="M7 21H5a2 2 0 0 1-2-2v-2" />
-      <path d="M7 12h10" />
-    </svg>
-  )
-}
-
 function ChatIcon({ className }: { className?: string }) {
   return (
     <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-    </svg>
-  )
-}
-
-function ExtractIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
-      <polyline points="7.5 4.21 12 6.81 16.5 4.21" />
-      <polyline points="7.5 19.79 7.5 14.6 3 12" />
-      <polyline points="21 12 16.5 14.6 16.5 19.79" />
-      <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
-      <line x1="12" y1="22.08" x2="12" y2="12" />
     </svg>
   )
 }
